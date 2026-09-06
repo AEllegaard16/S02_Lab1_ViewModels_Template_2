@@ -43,7 +43,11 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        @if (!string.IsNullOrWhiteSpace(TempData["Success"] as string))
+            {
+                <div class="alert alert-success" role="alert">@TempData["Success"]</div>
+            }
+            <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>

@@ -4,7 +4,20 @@
 }
 
 <h1>Type: @Model.ZombieType.TypeName</h1>
+@{
+    List<Zombie> zombiesList = new();
+    foreach (var item in Model.ZombiesList)
+    {
 
+        if (item.ZombieTypeId == Model.ZombieType.Id)
+        {
+            zombiesList.Add(item);
+        }
+    }
+    <h3>Nombre de zombies: @zombiesList.Count</h3>
+    <h3>Moyenne de points: @zombiesList.Average(z => z.Point)</h3>
+    // Manière plus simple?
+}
 <div class="row">
     @foreach (var item in Model.ZombiesList)
     {
